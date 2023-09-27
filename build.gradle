@@ -19,10 +19,14 @@ dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.projectlombok:lombok:1.18.28'
+	implementation 'org.projectlombok:lombok:1.18.28'
 	runtimeOnly 'org.postgresql:postgresql'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '3.1.2'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//implementation 'javax.persistence:javax.persistence-api:2.2'
+	//implementation 'org.hibernate:hibernate-core:5.5.6.Final'
 }
 
 tasks.named('test') {

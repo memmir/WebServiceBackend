@@ -1,22 +1,27 @@
 
 package com.example.WebService.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
+@Table(name="employee" , schema = "public")
 public class Employee {
 
     @Id
     @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
     String id;
 
     @Column
-    String name;
+    String nameSurname;
 
     @Column
-    String surname;
+    String password;
+
+    @Column
+    String email;
 
     @Column
     String address;
