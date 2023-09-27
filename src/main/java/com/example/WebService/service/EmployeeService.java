@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface EmployeeService {
 
-    //List<EmployeeDto> getAllRemoteEmployees(boolean employee);
+    public List<EmployeeDto> getAllRemoteEmployees(boolean remote);
 
-    //List<EmployeeDto> getAllEmployees();
+    public List<EmployeeDto> getAllEmployees();
 
 }

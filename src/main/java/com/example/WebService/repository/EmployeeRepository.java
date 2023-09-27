@@ -14,7 +14,7 @@ public interface EmployeeRepository  extends JpaRepository<Employee,String> {
 
 
     @Query("SELECT e FROM Employee e WHERE e.remote = ?1" )
-    List<Employee> findAllByRemote(String id);
+    List<Employee> findAllByRemote(boolean remote);
 
     //@Query("SELECT * FROM Employee")
     List<Employee> findAll();

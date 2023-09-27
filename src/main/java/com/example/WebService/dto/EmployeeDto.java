@@ -1,5 +1,8 @@
 package com.example.WebService.dto;
 
+import lombok.Data;
+
+@Data
 public class EmployeeDto {
 
     String id;
