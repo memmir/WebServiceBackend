@@ -20,55 +20,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    @Override
-    public List<EmployeeDto> getAllRemoteEmployees(boolean remote){
 
-        List<Employee> employeeList = employeeRepository.findAllByRemote(remote);
-        List<EmployeeDto> employeeDtoList = new ArrayList<>();
-
-        employeeList.stream().forEach( employee -> {
-
-            EmployeeDto employeeDto = new EmployeeDto();
-            employeeDto.setId(employee.getId());
-            employeeDto.setNameSurname(employee.getNameSurname());
-            employeeDto.setPassword(employee.getPassword());
-            employeeDto.setEmail(employee.getEmail());
-            employeeDto.setAddress(employee.getAddress());
-            employeeDto.setSalary(employee.getSalary());
-            employeeDto.setDepartment(employee.getDepartment());
-            employeeDto.setRemote(employee.isRemote());
-
-            employeeDtoList.add(employeeDto);
-
-        });
-
-        return employeeDtoList;
-
-    }
-
-    @Override
-    public List<EmployeeDto> getAllEmployees(){
-
-        List<Employee> employeeList = employeeRepository.findAll();
-        List<EmployeeDto> employeeDtoList = new ArrayList<>();
-
-        employeeList.stream().forEach( employee -> {
-
-            EmployeeDto employeeDto = new EmployeeDto();
-            employeeDto.setId(employee.getId());
-            employeeDto.setNameSurname(employee.getNameSurname());
-            employeeDto.setPassword(employee.getPassword());
-            employeeDto.setEmail(employee.getEmail());
-            employeeDto.setAddress(employee.getAddress());
-            employeeDto.setSalary(employee.getSalary());
-            employeeDto.setDepartment(employee.getDepartment());
-            employeeDto.setRemote(employee.isRemote());
-
-            employeeDtoList.add(employeeDto);
-
-        });
-
-        return employeeDtoList;
-    }
 
 }
