@@ -14,8 +14,6 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepository;
-
-
     public EmployeeServiceImpl(EmployeeRepository employeeRepository){
         this.employeeRepository = employeeRepository;
     }
@@ -27,7 +25,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<EmployeeDto> employeeDtoList = new ArrayList<>();
 
         employeeList.stream().forEach( employee -> {
-
             EmployeeDto employeeDto = new EmployeeDto();
             employeeDto.setId(employee.getId());
             employeeDto.setNameSurname(employee.getNameSurname());
