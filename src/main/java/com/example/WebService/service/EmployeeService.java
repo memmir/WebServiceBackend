@@ -10,4 +10,10 @@ public interface EmployeeService {
 
     public List<EmployeeDto> getAllEmployees();
 
+    public void saveEmployee (EmployeeDto employeeDto);
+
+    public void deleteEmployee ( String id );
+
+    public EmployeeDto findEmployeeById(String id);
+
 }

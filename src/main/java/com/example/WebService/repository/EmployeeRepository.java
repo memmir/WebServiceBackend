@@ -19,6 +19,10 @@ public interface EmployeeRepository  extends JpaRepository<Employee,String> {
     //@Query("SELECT * FROM Employee")
     List<Employee> findAll();
 
+    void deleteById(String id);
+
+    Employee findByID(String id);
+
 
 
 
