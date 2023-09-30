@@ -68,4 +68,48 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeDtoList;
     }
 
+    @Override
+    public void saveEmployee (EmployeeDto employeeDto){
+        Employee employee = new Employee();
+
+
+        employee.setNameSurname(employeeDto.getNameSurname());
+        employee.setPassword(employeeDto.getPassword());
+        employee.setEmail(employeeDto.getEmail());
+        employee.setAddress(employeeDto.getAddress());
+        employee.setSalary(employeeDto.getSalary());
+        employee.setDepartment(employeeDto.getDepartment());
+        employee.setRemote(employeeDto.isRemote());
+
+        employeeRepository.save(employee);
+    }
+
+    @Override
+    public void deleteEmployee ( String id ){
+
+        Employee employee = employeeRepository.findByID(id);
+
+        employeeRepository.delete(employee);
+
+    }
+
+    @Override
+    public EmployeeDto findEmployeeById(String id){
+
+        Employee employee = employeeRepository.findByID(id);
+        EmployeeDto employeeDto = new EmployeeDto();
+
+        employeeDto.setId(employee.getId());
+        employeeDto.setNameSurname(employee.getNameSurname());
+        employeeDto.setPassword(employee.getPassword());
+        employeeDto.setEmail(employee.getEmail());
+        employeeDto.setAddress(employee.getAddress());
+        employeeDto.setSalary(employee.getSalary());
+        employeeDto.setDepartment(employee.getDepartment());
+        employeeDto.setRemote(employee.isRemote());
+
+        return employeeDto;
+
+    }
+
 }
