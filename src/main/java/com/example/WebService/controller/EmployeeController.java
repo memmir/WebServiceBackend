@@ -3,9 +3,7 @@ package com.example.WebService.controller;
 
 import com.example.WebService.dto.EmployeeDto;
 import com.example.WebService.service.EmployeeServiceImpl;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +28,22 @@ public class EmployeeController {
         return employeeService.getAllRemoteEmployees(true);
     }
 
+
+    @PostMapping("/employee/saveEmployee")
+    public void saveEmployee(@RequestBody EmployeeDto employeeDto){
+        employeeService.saveEmployee(employeeDto);
+    }
+
+
+    @PostMapping("/employee/deleteEmployee/{id}")
+    public void deleteEmployee(@PathVariable String id){
+        employeeService.deleteEmployee(id);
+    }
+
+
+    @PostMapping("/employee/findById/{id}")
+    public void findEmployeeById(@PathVariable String id){
+         employeeService.findEmployeeById(id);
+    }
 
 }
