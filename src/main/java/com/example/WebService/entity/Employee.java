@@ -3,6 +3,7 @@ package com.example.WebService.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 @Data
 @Entity
@@ -12,6 +13,7 @@ public class Employee {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
+    //@GenericGenerator(name = "")
     String id;
 
     @Column

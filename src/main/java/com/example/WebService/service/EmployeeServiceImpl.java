@@ -4,6 +4,7 @@ package com.example.WebService.service;
 import com.example.WebService.dto.EmployeeDto;
 import com.example.WebService.entity.Employee;
 import com.example.WebService.repository.EmployeeRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -69,10 +70,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    @Transactional
     public void saveEmployee (EmployeeDto employeeDto){
         Employee employee = new Employee();
 
-
+        employee.setId(employeeDto.getId());
         employee.setNameSurname(employeeDto.getNameSurname());
         employee.setPassword(employeeDto.getPassword());
         employee.setEmail(employeeDto.getEmail());
@@ -87,7 +89,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void deleteEmployee ( String id ){
 
-        Employee employee = employeeRepository.findByID(id);
+        Employee employee = employeeRepository.findEmployeeById(id);
 
         employeeRepository.delete(employee);
 
@@ -96,7 +98,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeDto findEmployeeById(String id){
 
-        Employee employee = employeeRepository.findByID(id);
+        Employee employee = employeeRepository.findEmployeeById(id);
         EmployeeDto employeeDto = new EmployeeDto();
 
         employeeDto.setId(employee.getId());
